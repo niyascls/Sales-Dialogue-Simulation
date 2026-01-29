@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="google" content="notranslate">
+  <meta name="robots" content="notranslate">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Live Leaderboard</title>
+
+  <!-- IBM Plex Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Screen reader live region -->
+<div id="sr-status" class="sr-only" aria-live="polite"></div>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>🏆 Live Leaderboard</h1>
+
+    <div class="header-actions">
+      <span class="live-badge">LIVE</span>
+      <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="card">
+      <span class="label">Top Score</span>
+      <span class="value" id="topScore">–</span>
+    </div>
+
+    <div class="card">
+      <span class="label">Teams</span>
+      <span class="value" id="participantCount">–</span>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls-card">
+    <div class="control">
+      <label for="dateFilter">Date</label>
+      <div class="date-picker">
+        <input type="date" id="dateFilter">
+        <span class="date-icon" aria-hidden="true">📅</span>
+      </div>
+    </div>
+
+    <button id="refreshBtn">Refresh</button>
+    <button id="pauseBtn">⏸ Pause</button>
+  </div>
+
+  <div class="meta">
+    <span id="lastUpdated">Last updated: –</span>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Team</th>
+          <th scope="col">Score</th>
+          <th scope="col">Progress</th>
+          <th scope="col">Current Slide</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardBody">
+        <tr>
+          <td colspan="5" class="loading">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
